@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    </head>
+<!------ Include the above in your HEAD tag ---------->
+<body>
+
+
+<div class="row justify-content-center">
+<div class="col-md-6">
+<div class="card">
+<header class="card-header">
+	<a href="/login" class="float-right btn btn-outline-primary mt-1">Log in</a>
+	<h4 class="card-title mt-2">Sign up</h4>
+</header>
+<article class="card-body">
+<form action="" method="post">
+	<div class="form-row">
+		<div class="col form-group">
+			<label>First name </label>
+		  	<input type="text" class="form-control" placeholder="" name="first_name" value="{{
+          request.form.first_name }}">
+		</div> <!-- form-group end.// -->
+		<div class="col form-group">
+			<label>Last name</label>
+		  	<input type="text" class="form-control" placeholder=" " name="last_name" value="{{
+          request.form.last_name }}">
+		</div> <!-- form-group end.// -->
+	</div> <!-- form-row end.// -->
+	<div class="form-group">
+		<label>Email address</label>
+		<input type="email" class="form-control" placeholder="" name="email" value="{{
+          request.form.email }}">
+	</div> <!-- form-group end.// -->
+    <div class="form-group">
+		<label>Password</label>
+		<input type="password" class="form-control" placeholder="" name="password" value="{{
+          request.form.password }}">
+    </div> <!-- form-group end.// -->
+	<div class="form-group">
+		<label>Confirm password</label>
+	    <input class="form-control" type="password" name="confirm_password">
+	</div> <!-- form-group end.// -->
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Sign Up  </button>
+    </div> <!-- form-group// -->
+</form>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+</article> <!-- card-body end .// -->
+<div class="border-top card-body text-center">Have an account? <a href="/login">Log In</a></div>
+</div> <!-- card.// -->
+</div> <!-- col.//-->
+
+</div> <!-- row.//-->
+
+
+</div>
+<!--container end.//-->
+
+<br/><br/>
+</body>
+
+</html>

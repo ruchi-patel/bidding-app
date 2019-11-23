@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    </head>
+<!------ Include the above in your HEAD tag ---------->
+<body>
+
+
+<div class="row justify-content-center">
+<div class="col-md-6">
+<div class="card">
+<header class="card-header">
+	<a href="/login" class="float-right btn btn-outline-primary mt-1">Log in</a>
+	<h4 class="card-title mt-2">Product Registration</h4>
+</header>
+<article class="card-body">
+<form action="" method="post" enctype=multipart/form-data>
+	<div class="form-row">
+		<div class="col form-group">
+			<label>Category </label>
+            <select name= Category>
+                <option value="Jewelry">Jewelry</option>
+                <option value="Artifact">Artifact</option>
+                <option value="Painting">Painting</option>
+                <option value="Other">Other</option>
+            </select>
+		</div> <!-- form-group end.// -->
+		<div class="col form-group">
+			<label>Product-Name</label>
+		  	<input type="text" class="form-control" placeholder=" " name="Name" value="{{
+          request.form.name }}">
+		</div> <!-- form-group end.// -->
+	</div> <!-- form-row end.// -->
+	<div class="form-group">
+		<label>Upload Images</label>
+        <input type="file" name="files" multiple="true" >
+	</div> <!-- form-group end.// -->
+    <div class="form-group">
+		<label>Product-Description</label>
+		<input type="text" class="form-control" placeholder="" name="Description" value="{{
+          request.form.Description }}">
+    </div> <!-- form-group end.// -->
+	<div class="form-group">
+		<label>Enter Base-Price</label>
+	    <input class="form-control" type="number" name="Base_price" value="{{
+	      request.form.Base_price}}">
+	</div> <!-- form-group end.// -->
+    <div class="form-group">
+		<label>Is Product bidable ?</label>
+        <input type="radio" name="Is_bidable" value="Yes">Yes
+        <input type="radio" name="Is_bidable" value="No">No
+	</div> <!-- form-group end.// -->
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Register  </button>
+    </div> <!-- form-group// -->
+</form>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+</article> <!-- card-body end .// -->
+<div class="border-top card-body text-center">Have an account? <a href="/login">Log In</a></div>
+</div> <!-- card.// -->
+</div> <!-- col.//-->
+
+</div> <!-- row.//-->
+
+
+</div>
+<!--container end.//-->
+
+<br/><br/>
+</body>
+
+</html>
