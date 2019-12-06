@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+{% include 'head.html' %}
+<body>
+
+{% include 'navigation_bar.html' %}
+
+<div class="container">
+    <h3 class="row">
+        <h3> Successful registration of the product </h3>
+
+        <div class="card small">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename= 'product_images/' + product.product_image) }}">
+                <span class="card-title">{{ product.name }}</span>
+            </div>
+            <div class="card-content">
+                <div>
+<!--                    <i class="small material-icons">place</i>-->
+                    {# <span style="color: #ff8a65;">{{ product.town }}</span>#}
+                </div>
+
+                <p>{{ product.description }}</p>
+            </div>
+            <div class="card-action">
+                <a {# href="{{ url_for('product', product_id=product.id) }}" #}>See more</a>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+{% include 'footer.html' %}
+
+
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+
+</body>
+</html>
