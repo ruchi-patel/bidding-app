@@ -23,7 +23,7 @@
                 <p>{{ product.description }}</p>
             </div>
             <div class="card-action">
-                <a {# href="{{ url_for('product', product_id=product.id) }}" #}>See more</a>
+                <a  href="/product-detail?product_id={{ product.product_id }}" >See more</a>
             </div>
         </div>
     </div>

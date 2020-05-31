@@ -23,7 +23,9 @@
             </div>
         </div>
 
+        {% if not buyer_equals_seller %}
 
+{% if product.is_biddable %}
         <div class="col s12 m6">
             <h5> Bid Ends on {{ product.end_day }} {{ product.end_time }} </h5>
 {#
@@ -48,7 +50,7 @@
                 {% else %}
                     <tr>
                         <th scope="row">0</th>
-                        <td>There is no offers on this product</td>
+                        <td>There is no offer on this product</td>
                         <td>$ 0 </td>
                     </tr>
                 {% endif %}
@@ -87,10 +89,11 @@
             {% if session %}
                 <form action="" method="POST">
                     <input type="hidden" name="product_id" value="{{ product.product_id }}" />
+                    <input type="hidden" name="bid_id" {% if bid_id %}value="{{ bid_id }}"{% endif %} />
 
                     <div class="input-field col s6">
                         <input name="bid_amount" id="bid_amount" type="number" min="{{ product.base_price }}"
-                               class="validate">
+                               class="validate" {% if bid_amount %}value="{{ bid_amount }}" {% endif %}>
                         <label for="bid_amount">Enter bid price: </label>
                         <span class="helper-text">Base price is: ${{ product.base_price }}</span>
                     </div>
@@ -101,11 +104,45 @@
                     </div>
                 </form>
             {% else %}
+            <br/>
+            <br/>
+            <br/>
+            <br/>
                 Want to Place a bid / buy?
                 <a href="{{ url_for('login') }}">Login</a></li>
             {% endif %}
 
         </div>
+        {% else %}
+        <div class="col s12 m6">
+            {% if session %}
+            <span class="helper-text">
+                Product is available to buy for base price<br/><br/><br/><br/>
+            Base price is: ${{ product.base_price }}<br/><br/><br/>
+            </span>
+                <form action="/buy?product_id={{ product.product_id }}" method="GET">
+                    <input type="hidden" name="product_id" value="{{ product.product_id }}" />
+
+
+
+                    <div class="input-field col s12 m8">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Buy
+                            <i class="material-icons right">send</i>
+                        </button><br/>
+                    </div>
+                </form>
+            {% else %}
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+                Want to Place a bid / buy?
+                <a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+        </div>
+        {% endif %} {% endif %}
+<br/>
+<br/>
 <br/>
 <br/>
         Sold by <div class="blue-text">  {{ user.first_name }}</div>

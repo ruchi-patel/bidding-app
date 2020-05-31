@@ -17,3 +17,4 @@ class Product(db.Model):
     views = db.Column(db.Integer, default=0)
     is_biddable = db.Column(db.Boolean, default=False)
     seller_id = db.Column(db.String(80), db.ForeignKey('users.email'), nullable=False)
+    is_active = db.Column(db.Boolean, default=True)

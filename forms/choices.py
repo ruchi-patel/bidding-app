@@ -1,7 +1,10 @@
 product_categories = [
     ('painting', 'Painting'),
     ('article', 'Article'),
-    ('watch', 'Watch')
+    ('watch', 'Watch'),
+    ('antique', 'Antique'),
+    ('gemstones', 'Gem Stones'),
+    ('coins', 'Coins')
 ]
 
 payment_types = [

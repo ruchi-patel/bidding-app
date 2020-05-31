@@ -1,6 +1,10 @@
 <ul id="dropdown1" class="dropdown-content">
     {% if session %}
-        <li><a href="{{ url_for('home') }}">Profile</a></li>
+        <li><a href="{{ url_for('list_bids') }}">List Bids</a></li>
+        <li class="divider"></li>
+        <li><a href="{{ url_for('list_products') }}">List Products You Sell</a></li>
+        <li class="divider"></li>
+        <li><a href="{{ url_for('list_ordered_products') }}">List Ordered Products</a></li>
         <li class="divider"></li>
         <li><a href="{{ url_for('logout') }}">Logout</a></li>
     {% else %}

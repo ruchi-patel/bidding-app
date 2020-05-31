@@ -3,6 +3,7 @@ from models.product import Product
 from models.address import Address
 from models.payment import Payment
 from models.order import Order
+from models.order_confirmation import OrderConfirmation
 from util import *
 
 
@@ -27,6 +28,7 @@ def convert_to_product_from(product_registration_form, seller_id):
                           )
     return new_product
 
+
 def convert_to_address_from(order_form, user_id):
 
     new_address = Address(address_name=order_form.address_name.data,
@@ -37,6 +39,7 @@ def convert_to_address_from(order_form, user_id):
                           zip_code=order_form.zip_code.data
                           )
     return new_address
+
 
 def convert_to_payment_from(order_form, user_id):
 
@@ -50,10 +53,21 @@ def convert_to_payment_from(order_form, user_id):
                           )
     return new_payment
 
+
 def convert_to_order_from(product_id, payment_id, address_id, bid_id):
     new_order = Order(product_id=product_id,
                       payment_id=payment_id,
                       address_id=address_id,
                       bid_id=bid_id
                       )
+    return new_order
+
+def convert_to_order_confirmation_from(product_id, payment_id, address_id, user_id, order_id, amount):
+    new_order = OrderConfirmation(product_id=product_id,
+                                  payment_id=payment_id,
+                                  address_id=address_id,
+                                  user_id=user_id,
+                                  order_id=order_id,
+                                  amount=amount
+                                 )
     return new_order
