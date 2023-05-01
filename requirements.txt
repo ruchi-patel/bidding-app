@@ -1,4 +1,4 @@
-Flask==1.1.1
+Flask==2.3.2
 flask-mysql==1.4.0
 cryptography
 Flask-WTF==0.14.2
